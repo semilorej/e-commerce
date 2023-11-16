@@ -1,12 +1,16 @@
 <script>
-	import 'bootstrap/dist/css/bootstrap.min.css';
-	// Navigation data
 	let navigation = [
 		{ text: 'Home', link: '#' },
 		{ text: 'Products', link: '#products' },
 		{ text: 'Pricing', link: '#pricing' },
 		{ text: 'Contact', link: '#contact' }
 	];
+
+	let isNavbarOpen = false;
+
+	function toggleNavbar() {
+		isNavbarOpen = !isNavbarOpen;
+	}
 </script>
 
 <main>
@@ -15,22 +19,21 @@
 			<a class="navbar-brand" href="/">Eye Products Store</a>
 			<button
 				class="navbar-toggler"
-				type="button"
-				data-toggle="collapse"
-				data-target="#navbarNav"
-				aria-controls="navbarNav"
-				aria-expanded="false"
+				on:click={toggleNavbar}
+				aria-expanded={isNavbarOpen ? 'true' : 'false'}
 				aria-label="Toggle navigation"
 			>
 				<span class="navbar-toggler-icon" />
 			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ml-auto">
-					{#each navigation as item ((item.text, item.link))}
-						<li><a class="nav-link" href={item.link}>{item.text}</a></li>
-					{/each}
-				</ul>
-			</div>
+			{#if isNavbarOpen}
+				<div class="navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ml-auto">
+						{#each navigation as { text, link }}
+							<li><a class="nav-link" href={link}>{text}</a></li>
+						{/each}
+					</ul>
+				</div>
+			{/if}
 		</div>
 	</nav>
 </main>
