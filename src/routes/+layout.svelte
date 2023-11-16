@@ -12,7 +12,7 @@
 <main>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container">
-			<a class="navbar-brand" href="#">Eye Products Store</a>
+			<a class="navbar-brand" href="/">Eye Products Store</a>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 					{#each navigation as item ((item.text, item.link))}
