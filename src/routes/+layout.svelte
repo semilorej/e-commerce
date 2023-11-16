@@ -25,7 +25,7 @@
 			>
 				<span class="navbar-toggler-icon" />
 			</button>
-			{#if isNavbarOpen}
+			{#if !isNavbarOpen}
 				<div class="navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav ml-auto">
 						{#each navigation as { text, link }}
