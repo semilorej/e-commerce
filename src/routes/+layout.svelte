@@ -6,10 +6,10 @@
 		{ text: 'Contact', link: '#contact' }
 	];
 
-	let isNavbarOpen = false;
+	let isNavOpen = false;
 
-	function toggleNavbar() {
-		isNavbarOpen = !isNavbarOpen;
+	function toggleNav() {
+		isNavOpen = !isNavOpen;
 	}
 </script>
 
@@ -19,21 +19,20 @@
 			<a class="navbar-brand" href="/">Eye Products Store</a>
 			<button
 				class="navbar-toggler"
-				on:click={toggleNavbar}
-				aria-expanded={isNavbarOpen ? 'true' : 'false'}
+				type="button"
+				on:click={toggleNav}
 				aria-label="Toggle navigation"
 			>
 				<span class="navbar-toggler-icon" />
 			</button>
-			{#if !isNavbarOpen}
-				<div class="navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ml-auto">
-						{#each navigation as { text, link }}
-							<li><a class="nav-link" href={link}>{text}</a></li>
-						{/each}
-					</ul>
-				</div>
-			{/if}
+
+			<div class="navbar-collapse" style="display: {isNavOpen ? 'block' : 'none'};">
+				<ul class="navbar-nav ml-auto">
+					{#each navigation as { text, link }}
+						<li><a class="nav-link" href={link}>{text}</a></li>
+					{/each}
+				</ul>
+			</div>
 		</div>
 	</nav>
 </main>
